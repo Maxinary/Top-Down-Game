@@ -21,10 +21,14 @@ window.onload = function(){
   box.color = "#0000FF";
   
   var a = new gameBoard([box, player], 0, c);
-  registerKeyPress(buttonMove.hold, 38, function(){player.point.y-=unit/2;a.draw();});
-  registerKeyPress(buttonMove.hold, 40, function(){player.point.y+=unit/2;a.draw();});
-  registerKeyPress(buttonMove.hold, 37, function(){player.point.x-=unit/2;a.draw();});
-  registerKeyPress(buttonMove.hold, 39, function(){player.point.x+=unit/2;a.draw();});
+  var playerMove = function(a){
+    player.point.y+=a*Math.sin(player.angle);
+    player.point.x+=a*Math.cos(player.angle);  
+  }
+  registerKeyPress(buttonMove.hold, 38, function(){playerMove(1);a.draw();});
+  registerKeyPress(buttonMove.hold, 40, function(){playerMove(-1);a.draw();});
+  registerKeyPress(buttonMove.hold, 37, function(){player.angle -= 0.02;a.draw();});
+  registerKeyPress(buttonMove.hold, 39, function(){player.angle += 0.02;a.draw();});
   setInterval(
     function(){
       for(var i in holdFunctions){
