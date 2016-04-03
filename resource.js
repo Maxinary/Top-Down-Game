@@ -22,10 +22,11 @@ class gameBoard{
     for(var i=0;i < this.objects.length;i++){
       this.objects[i].draw(
         new Tuple(
-          -(cObj.point.x+cObj.size.x/2) + this.canvas.width/2,
-          -(cObj.point.y+cObj.size.y/2) + this.canvas.height/2
+          -unit*(cObj.point.x+cObj.size.x/2) + this.canvas.width/2,
+          -unit*(cObj.point.y+cObj.size.y/2) + this.canvas.height/2
         ),
-        this.context);
+        this.context
+      );
     }
   }
 }
