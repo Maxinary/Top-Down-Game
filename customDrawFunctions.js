@@ -15,10 +15,10 @@ function dist(x1,y1,x2,y2){
 function rect(point, ctx){
   var t = ctx.fillStyle;
   ctx.fillStyle = getColor(this);
-  ctx.fillRect(point.x + this.point.x,
-               point.y + this.point.y,
-               this.size.x,
-               this.size.y
+  ctx.fillRect(point.x + this.point.x*unit,
+               point.y + this.point.y*unit,
+               this.size.x*unit,
+               this.size.y*unit
   );
   ctx.fillStyle = t;
 }
